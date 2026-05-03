@@ -1,21 +1,13 @@
 """
-Agent module: handles context retrieval, prompt construction, and Gemini API calls.
+Agent module: handles context retrieval, prompt construction, and LLM calls via adapter.
 """
 
-import os
 import re
 from typing import List
 
-from google import genai
-from google.genai import types
-from dotenv import load_dotenv
-
 from context_store import get_context
 from models import ChatMessage
-
-load_dotenv()
-
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+from llm_adapter import get_adapter
 
 SYSTEM_PROMPT = (
     "You are an expert exam question generator. Based on the given subject, exam type, "
@@ -82,36 +74,21 @@ def generate_questions(
     3. Call Gemini
     4. Parse & return results
     """
-    if not GEMINI_API_KEY:
-        raise ValueError("GEMINI_API_KEY is not set. Please add it to your .env file.")
-
     # Step 1: Fetch context
     context = get_context(subject, exam_type)
 
     # Step 2: Build prompt
     user_prompt = build_user_prompt(subject, exam_type, num_questions, context)
 
-    # Step 3: Build contents list (chat history + current prompt)
-    contents = []
-    if chat_history:
-        for msg in chat_history[:-1]:  # exclude last user msg (we'll add it fresh)
-            role = "user" if msg.role == "user" else "model"
-            contents.append(types.Content(role=role, parts=[types.Part(text=msg.content)]))
+    # Step 3: Build chat history for adapter
+    history = [
+        {"role": msg.role, "content": msg.content}
+        for msg in (chat_history or [])[:-1]
+    ]
 
-    contents.append(types.Content(role="user", parts=[types.Part(text=user_prompt)]))
-
-    # Step 4: Call Gemini via new google-genai SDK
-    client = genai.Client(api_key=GEMINI_API_KEY)
-    response = client.models.generate_content(
-        model="gemini-2.0-flash",
-        contents=contents,
-        config=types.GenerateContentConfig(
-            system_instruction=SYSTEM_PROMPT,
-            temperature=0.8,
-        ),
-    )
-
-    raw_text = response.text.strip()
+    # Step 4: Call LLM via adapter
+    adapter = get_adapter()
+    raw_text = adapter.generate(SYSTEM_PROMPT, user_prompt, history)
 
     # Step 5: Parse questions
     questions = parse_questions(raw_text)
