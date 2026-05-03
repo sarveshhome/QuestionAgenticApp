@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Question Generator | Exam Practice</title>
+  <meta name="description"
+    content="AI-powered practice question generator for JEE, NEET, SAT, GATE, and UPSC. Instantly generate exam-style questions using Gemini AI." />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- ── Sidebar ───────────────────────────────────────────────── -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">🎓</div>
+          <span>QuestionGen AI</span>
+        </div>
+        <div class="sidebar-subtitle">Powered by Gemini</div>
+      </div>
+
+      <div class="controls">
+
+        <!-- Subject -->
+        <div class="control-group">
+          <label for="subject">Subject</label>
+          <div class="select-wrapper">
+            <select id="subject">
+              <option value="">— Select Subject —</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="Physics">Physics</option>
+              <option value="Chemistry">Chemistry</option>
+              <option value="Biology">Biology</option>
+              <option value="Computer Science">Computer Science</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Exam Type -->
+        <div class="control-group">
+          <label for="examType">Exam Type</label>
+          <div class="select-wrapper">
+            <select id="examType">
+              <option value="">— Select Exam —</option>
+              <option value="JEE">JEE (Joint Entrance Exam)</option>
+              <option value="NEET">NEET (Medical Entrance)</option>
+              <option value="SAT">SAT (Scholastic Assessment)</option>
+              <option value="GATE">GATE (Graduate Aptitude)</option>
+              <option value="UPSC">UPSC (Civil Services)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Number of Questions -->
+        <div class="control-group">
+          <label for="numQuestions">
+            Number of Questions &nbsp;
+            <span class="range-value" id="numQDisplay">5</span>
+          </label>
+          <input type="range" id="numQuestions" min="3" max="15" value="5" step="1" />
+          <div class="range-display"><span>3</span><span>15</span></div>
+        </div>
+
+        <!-- Generate -->
+        <button id="generateBtn">✨ Generate Questions</button>
+
+      </div><!-- /controls -->
+
+      <div class="sidebar-footer">
+        <button id="newChatBtn">＋ New Chat</button>
+      </div>
+    </aside>
+
+    <!-- ── Chat Area ─────────────────────────────────────────────── -->
+    <main class="chat-area">
+
+      <div class="chat-header">
+        <h1>AI Question Generator</h1>
+        <div class="header-badges">
+          <span class="badge">Gemini 2.0 Flash</span>
+          <span class="badge active" id="activeBadge">Ready</span>
+        </div>
+      </div>
+
+      <div id="chatWindow">
+        <!-- Filled by JS -->
+        <div class="empty-state">
+          <div class="empty-icon">🎓</div>
+          <h2>AI Question Generator</h2>
+          <p>Select a subject and exam type, then click <strong>Generate Questions</strong> to get started.</p>
+          <div class="quick-tips">
+            <span class="tip">JEE · Mathematics</span>
+            <span class="tip">NEET · Biology</span>
+            <span class="tip">GATE · CS</span>
+            <span class="tip">SAT · Physics</span>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+
+</html>
