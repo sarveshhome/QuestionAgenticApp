@@ -1,0 +1,11 @@
+{
+  "difficulty": "Very Hard",
+  "pattern": "MCQ, numerical, code-trace, algorithm analysis",
+  "sample_questions": [
+    "What is the time complexity of merge sort?",
+    "Explain the difference between process and thread.",
+    "Given a BFS traversal, identify the graph structure.",
+    "Write a dynamic programming solution for the 0/1 Knapsack problem.",
+    "What is the difference between deadlock and starvation in OS?"
+  ]
+}

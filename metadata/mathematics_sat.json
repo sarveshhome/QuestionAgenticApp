@@ -1,0 +1,11 @@
+{
+  "difficulty": "Medium",
+  "pattern": "Multiple choice, grid-in, no calculator section",
+  "sample_questions": [
+    "If 3x + 7 = 22, what is the value of x?",
+    "A circle has a radius of 5. What is its area in terms of π?",
+    "What is the slope of the line passing through (2, 3) and (4, 7)?",
+    "Simplify: (x² - 9) / (x - 3)",
+    "If f(x) = 2x - 1, what is f(f(3))?"
+  ]
+}

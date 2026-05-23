@@ -9,6 +9,7 @@ import os
 
 from models import GenerateRequest, GenerateResponse
 from agent import generate_questions
+from context_store import list_available_contexts
 
 app = FastAPI(
     title="AI Question Generator Agent",
@@ -61,14 +62,19 @@ async def health():
 
 @app.get("/api/subjects")
 async def list_subjects():
-    """Return supported subjects and exam types."""
+    """
+    Dynamically return supported subjects and exam types
+    by scanning the metadata/ folder for JSON files.
+    """
+    contexts = list_available_contexts()  # {subject: [exam, ...]}
+    all_exams: set[str] = set()
+    for exams in contexts.values():
+        all_exams.update(exams)
     return {
-        "subjects": [
-            "Mathematics",
-            "Physics",
-            "Chemistry",
-            "Biology",
-            "Computer Science",
-        ],
-        "exam_types": ["JEE", "NEET", "SAT", "GATE", "UPSC"],
+        "subjects": sorted(s.title() for s in contexts.keys()),
+        "exam_types": sorted(e.upper() for e in all_exams),
+        "details": {
+            s.title(): [e.upper() for e in sorted(exams)]
+            for s, exams in contexts.items()
+        },
     }

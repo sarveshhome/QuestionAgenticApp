@@ -1,0 +1,11 @@
+{
+  "difficulty": "Very Hard",
+  "pattern": "MCQ, multiple select, numerical answer type",
+  "sample_questions": [
+    "Find the eigenvalues of the matrix [[2, 1], [1, 2]].",
+    "Solve the differential equation dy/dx + 2y = e^(-x).",
+    "Evaluate the Laplace transform of f(t) = t·e^(2t).",
+    "What is the rank of the matrix [[1,2,3],[4,5,6],[7,8,9]]?",
+    "Compute ∬ (x² + y²) dA over the region x² + y² ≤ 4."
+  ]
+}

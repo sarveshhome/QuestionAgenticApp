@@ -1,0 +1,11 @@
+{
+  "difficulty": "Very Hard",
+  "pattern": "Numerical answer type, advanced derivations",
+  "sample_questions": [
+    "Determine the Poynting vector for a plane wave in free space.",
+    "Calculate the magnetic flux density for a long straight conductor carrying 10A at 0.5m distance.",
+    "Derive the expression for the time period of a simple pendulum.",
+    "State and prove Gauss's law in differential form.",
+    "Compute the transmission coefficient for a particle tunneling through a potential barrier."
+  ]
+}

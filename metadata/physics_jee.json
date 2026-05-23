@@ -1,0 +1,11 @@
+{
+  "difficulty": "Hard",
+  "pattern": "Conceptual MCQ, numerical, passage-based",
+  "sample_questions": [
+    "A body is thrown vertically upward with velocity 20 m/s. Find maximum height (g = 10 m/s²).",
+    "Two charges +q and -q are placed at distance d. Find electric field at midpoint.",
+    "A capacitor of 4μF is charged to 100V. Find energy stored.",
+    "An ideal gas expands adiabatically. What happens to its temperature?",
+    "Find the de Broglie wavelength of an electron moving at 10⁶ m/s."
+  ]
+}
