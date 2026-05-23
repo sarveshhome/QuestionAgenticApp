@@ -20,3 +20,4 @@ class GenerateResponse(BaseModel):
     subject: str
     exam_type: str
     num_questions: int
+    review: Optional[str] = None

@@ -158,6 +158,11 @@ LLM_PROVIDER=myprovider
 - Cohere → https://dashboard.cohere.com/api-keys
 
 
+agents/
+├── __init__.py         ← exports QuestionAgent, ReviewAgent
+├── base_agent.py       ← shared base (holds LLM adapter)
+├── question_agent.py   ← reads metadata/ → generates questions
+└── review_agent.py     ← reads metadata/ → reviews questions
 
 
 
@@ -171,3 +176,7 @@ store all qustion in one metadata folder
 `python3 -m uvicorn main:app --reload`
 
 <img width="3008" height="1720" alt="image" src="https://github.com/user-attachments/assets/94f5196b-bfc0-4429-9412-8ce8812ec317" />
+
+
+
+
