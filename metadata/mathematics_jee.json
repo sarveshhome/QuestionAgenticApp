@@ -1,0 +1,11 @@
+{
+  "difficulty": "Hard",
+  "pattern": "Multiple choice, assertion-reason, integer answer, matrix match",
+  "sample_questions": [
+    "If f(x) = x³ - 3x + 2, find the local minima and maxima.",
+    "Evaluate the definite integral ∫₀^π sin²(x) dx.",
+    "The sum of roots of the equation 2x² - 5x + 3 = 0 is?",
+    "Find the area enclosed by y = x² and y = x + 2.",
+    "If P and Q are two matrices such that PQ = P and QP = Q, then Q² is equal to?"
+  ]
+}

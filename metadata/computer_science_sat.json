@@ -1,0 +1,11 @@
+{
+  "difficulty": "Easy-Medium",
+  "pattern": "Logical reasoning, basic computational thinking",
+  "sample_questions": [
+    "What does CPU stand for and what is its primary function?",
+    "Describe the difference between RAM and ROM.",
+    "What is the binary representation of decimal 25?",
+    "What is an algorithm? Give a real-life example.",
+    "How does the internet use IP addresses?"
+  ]
+}

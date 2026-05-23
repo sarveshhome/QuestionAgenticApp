@@ -1,0 +1,11 @@
+{
+  "difficulty": "Hard",
+  "pattern": "MCQ, assertion-reason, linked comprehension",
+  "sample_questions": [
+    "Write the IUPAC name of CH₃-CH(OH)-CH₂-COOH.",
+    "Calculate the molarity of a solution containing 4g of NaOH in 500mL.",
+    "What is the hybridization and geometry of SF₄?",
+    "Which of the following is NOT a characteristic of ionic compounds?",
+    "Explain SN1 vs SN2 reaction mechanism with examples."
+  ]
+}
